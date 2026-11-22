@@ -251,6 +251,12 @@
     const th = e.target.closest("#mThumbs button");
     if (th) { showMedia(+th.dataset.i); return; }
     if (e.target.closest("[data-close]")) { closeProject(false); return; }
+    // clic dans le vide de la fiche projet = fermer (sauf dans la colonne de textes à droite du player)
+    if (!modal.hidden && !e.target.closest(".info") && e.target.matches(".modal-panel, .modal-content, .modal-bar, .viewer")) {
+      const info = $(".info").getBoundingClientRect();
+      const inTextColumn = e.target.matches(".modal-content, .modal-panel") && innerWidth > 900 && e.clientX >= info.left && e.clientX <= info.right;
+      if (!inTextColumn) { closeProject(false); return; }
+    }
     const a = e.target.closest('a[href^="#"]');
     if (a && !modal.hidden && !byId[a.getAttribute("href").slice(1)]) {
       // lien vers une section depuis la fiche : on ferme d'abord
