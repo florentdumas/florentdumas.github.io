@@ -3,6 +3,7 @@
   "use strict";
   const S = window.SITE;
   const $ = (s, el = document) => el.querySelector(s);
+  const homeTitle = document.title; // titre de l'onglet défini dans index.html
 
   /* ---------- Textes de l'interface ---------- */
   const UI = {
@@ -222,7 +223,7 @@
     modal.hidden = true;
     $("#mStage").innerHTML = "";              // coupe les vidéos en cours
     document.body.classList.remove("modal-open");
-    document.title = `${S.name} — ${t(S.tagline)}`;
+    document.title = homeTitle;
     if (!fromHash) {
       if (openedByUs) history.back();
       else history.replaceState(null, "", location.pathname + location.search + "#work");
