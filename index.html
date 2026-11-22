@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Florent Dumas — technical audio designer</title>
+  <meta name="description" content="Florent Dumas, technical audio designer specialized in interactive audio, 360° and VR sound design, implementation and integration.">
+  <meta property="og:title" content="Florent Dumas — technical audio designer">
+  <meta property="og:description" content="Interactive audio, 360° & VR sound design portfolio.">
+  <meta property="og:image" content="images/spheres/spheres_poster.jpg">
+  <meta name="theme-color" content="#0b0b0c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0b0c'/%3E%3Cpath d='M5 16h3l2-6 3 14 3-18 3 16 2-8 2 2h4' fill='none' stroke='%23e8a33d' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>/* thème clair/sombre choisi précédemment, appliqué avant l'affichage */
+    try { if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
+</head>
+<body>
+  <a class="skip" href="#work" data-ui="skip">Skip to projects</a>
+
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" id="brand">Florent Dumas</a>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="#work" data-ui="nav.work">work</a>
+        <a href="#about" data-ui="nav.about">about</a>
+        <a href="#credits" data-ui="nav.credits">credits</a>
+        <a href="#contact" data-ui="nav.contact">contact</a>
+      </nav>
+      <button class="pill-toggle" id="langToggle" type="button" aria-label="Change language">FR</button>
+      <button class="pill-toggle theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+      </button>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <canvas class="hero-wave" id="wave" aria-hidden="true"></canvas>
+      <div class="hero-inner wrap">
+        <h1 class="hero-title" id="headline"></h1>
+        <p class="hero-intro" id="intro"></p>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span data-ui="nav.work">work</span></h2>
+          <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+        </div>
+        <ul class="grid" id="grid"></ul>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-head"><h2><span data-ui="nav.about">about</span></h2></div>
+        <div class="about">
+          <div class="about-body">
+            <div class="prose about-text" id="aboutText"></div>
+            <div class="news" id="newsBlock">
+              <h3 data-ui="news">news</h3>
+              <ul id="news"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="skills" id="skills"></div>
+        <h3 data-ui="cv">cv</h3>
+        <a class="text-link" id="resume" href="#" target="_blank" rel="noopener"><span data-ui="resume">download my resume</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="credits">
+      <div class="wrap">
+        <div class="section-head"><h2><span data-ui="nav.credits">credits</span></h2></div>
+        <div class="credits" id="creditsList"></div>
+        <h3 class="awards-title" data-ui="awards">awards</h3>
+        <ul class="awards" id="awards"></ul>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="wrap">
+        <div class="section-head"><h2><span data-ui="contactTitle">contact</span></h2></div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="cfName" data-ui="formName">name</label>
+            <input id="cfName" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="cfEmail" data-ui="formEmail">email</label>
+            <input id="cfEmail" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="cfMessage" data-ui="formMessage">message</label>
+            <textarea id="cfMessage" name="message" rows="6" required></textarea>
+          </div>
+          <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-foot">
+            <button class="form-send" type="submit" data-ui="formSend">send</button>
+            <p class="form-status" id="cfStatus" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+        <div id="contactBody"></div>
+      </div>
+    </section>
+    <!-- Mentions légales : affichées seulement quand on clique sur le lien du pied de page (#legal) -->
+    <section class="section legal" id="legal">
+      <div class="wrap">
+        <div class="section-head"><h2><span data-ui="legal">legal notice</span></h2></div>
+        <div class="prose legal-text" id="legalText"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap" id="footer"></div></footer>
+
+  <!-- Fiche projet -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <article class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="mTitle" tabindex="-1">
+      <div class="modal-bar">
+        <button type="button" class="icon-btn" id="mPrev" aria-label="Previous project">←</button>
+        <span class="modal-count" id="mCount"></span>
+        <button type="button" class="icon-btn" id="mNext" aria-label="Next project">→</button>
+        <button type="button" class="icon-btn close" data-close aria-label="Close">✕</button>
+      </div>
+      <div class="modal-content">
+        <div class="viewer">
+          <div class="stage" id="mStage"></div>
+          <p class="stage-caption" id="mCaption"></p>
+          <ul class="thumbs" id="mThumbs"></ul>
+        </div>
+        <div class="info">
+          <h2 class="info-title" id="mTitle"></h2>
+          <dl class="info-facts" id="mFacts"></dl>
+          <div class="info-actions" id="mActions"></div>
+          <div class="prose" id="mText"></div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <noscript><p class="noscript">This site needs JavaScript to display its content.</p></noscript>
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
