@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://florentdumas.github.io/sitemap.xml

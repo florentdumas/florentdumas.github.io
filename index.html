@@ -5,9 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Florent Dumas — Interactive Audio, Programming & Sound Design for Games</title>
   <meta name="description" content="Portfolio of Florent Dumas, lead and technical audio designer: interactive audio, programming and sound design for games.">
+  <meta name="author" content="Florent Dumas">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://florentdumas.github.io/">
+  <!-- versions linguistiques (le site change de langue avec ?lang=) -->
+  <link rel="alternate" hreflang="en" href="https://florentdumas.github.io/?lang=en">
+  <link rel="alternate" hreflang="fr" href="https://florentdumas.github.io/?lang=fr">
+  <link rel="alternate" hreflang="x-default" href="https://florentdumas.github.io/">
+  <!-- aperçu quand le lien est partagé (Discord, LinkedIn, X…) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Florent Dumas">
+  <meta property="og:url" content="https://florentdumas.github.io/">
   <meta property="og:title" content="Florent Dumas">
   <meta property="og:description" content="Interactive Audio, Programming & Sound Design for Games">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Florent Dumas">
+  <meta name="twitter:description" content="Interactive Audio, Programming & Sound Design for Games">
   <meta name="theme-color" content="#0b0b0c">
+  <!-- schema markup : informations structurées lues par Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://florentdumas.github.io/#website",
+        "url": "https://florentdumas.github.io/",
+        "name": "Florent Dumas",
+        "description": "Portfolio of Florent Dumas, lead and technical audio designer: interactive audio, programming and sound design for games.",
+        "inLanguage": ["en", "fr"],
+        "author": { "@id": "https://florentdumas.github.io/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://florentdumas.github.io/#person",
+        "name": "Florent Dumas",
+        "url": "https://florentdumas.github.io/",
+        "jobTitle": "Lead and Technical Audio Designer",
+        "description": "Interactive audio, programming and sound design for games.",
+        "worksFor": { "@type": "Organization", "name": "G4F Prod", "url": "https://www.g4f-prod.com/" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "ENJMIN", "url": "https://enjmin.cnam.fr/" },
+        "knowsAbout": ["Interactive audio", "Technical audio design", "Sound design", "Audio implementation", "Wwise", "FMOD", "Unity", "Unreal Engine", "Pure Data", "Virtual reality audio"]
+      }
+    ]
+  }
+  </script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0b0c'/%3E%3Cpath d='M5 16h3l2-6 3 14 3-18 3 16 2-8 2 2h4' fill='none' stroke='%23e8a33d' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,8 +87,8 @@
     <section class="hero" id="top">
       <canvas class="hero-wave" id="wave" aria-hidden="true"></canvas>
       <div class="hero-inner wrap">
-        <h1 class="hero-title" id="headline"></h1>
-        <p class="hero-intro" id="intro"></p>
+        <h1 class="hero-title" id="headline">Interactive Audio, Programming &amp; Sound Design for Games</h1>
+        <p class="hero-intro" id="intro">Lead Audio at <a href="https://www.g4f-prod.com/" target="_blank" rel="noopener">G4F Prod</a></p>
       </div>
     </section>
 
@@ -147,7 +191,7 @@
     </article>
   </div>
 
-  <noscript><p class="noscript">This site needs JavaScript to display its content.</p></noscript>
+  <noscript><p class="noscript">Florent Dumas is a lead and technical audio designer at G4F Prod: interactive audio, programming and sound design for games. This site needs JavaScript to display the projects.</p></noscript>
   <script src="content.js"></script>
   <script src="app.js"></script>
 </body>
