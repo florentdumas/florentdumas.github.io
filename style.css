@@ -259,6 +259,11 @@ h3 { font: 500 13px/1.2 var(--head); letter-spacing: .18em; text-transform: uppe
 .stage > img, .stage > iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .stage > img { object-fit: contain; }
 .stage .poster { object-fit: cover; }
+.stage > img.zoomable { cursor: zoom-in; }
+/* aperçu agrandi : taille max réglable ici */
+.zoom { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; background: rgba(0, 0, 0, .85); cursor: zoom-out; animation: fade .25s var(--ease) both; }
+.zoom[hidden] { display: none; }
+.zoom img { max-width: 90vw; max-height: 88vh; width: auto; height: auto; border-radius: var(--radius); box-shadow: 0 20px 80px rgba(0, 0, 0, .6); }
 .stage .play { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0, 0, 0, .25); border: 0; cursor: pointer; transition: background .3s; }
 .stage .play:hover { background: rgba(0, 0, 0, .05); }
 .stage .play span { width: 78px; height: 78px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; transition: transform .3s var(--ease); box-shadow: 0 8px 40px rgba(0, 0, 0, .5); }

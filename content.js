@@ -237,15 +237,17 @@ J'ai utilisé mon propre outil, [Audio Engine](#audio-engine), sur ce projet. J'
     tags: ["vr", "linear"],
     cover: "images/4feethigh/4feethigh_poster.jpg",
     type: { en: "episodic and virtual reality series", fr: "série épisodique et en réalité virtuelle" },
-    tech: "",
-    platforms: "",
+    tech: "reaper, pro tools",
+    platforms: "vr",
     role: { en: "lead audio, 360 mix", fr: "lead audio, mix 360" },
-    links: [
-      { label: { en: "website", fr: "site web" }, url: "https://www.4feethigh.com/" }
-    ],
+    links: [],
     download: "",
     media: [
-      { vimeo: "452674178", caption: "trailer" }
+      { youtube: "8S3jBzRExdw", caption: "official trailer · vr episodes 1 & 2" },
+      { youtube: "DsuuFdweUpI", caption: "series trailer · bfi london film festival 2021" },
+      { image: "images/4feethigh/4feethigh_still_2.jpg" },
+      { image: "images/4feethigh/4feethigh_still_1.jpg" },
+      { image: "images/4feethigh/4feethigh_poster.jpg" }
     ],
     text: {
       en: `Juana, a 17-year-old wheelchair user, aims to explore her sexuality but is ashamed of her body. Trying to find her place in a new high school, she will go through failure, friendship, fear and politics until she builds her own pride.`,
@@ -268,7 +270,12 @@ J'ai utilisé mon propre outil, [Audio Engine](#audio-engine), sur ce projet. J'
     ],
     download: "",
     media: [
-      { youtube: "KyTb_56XzN8", caption: "trailer" }
+      { youtube: "KyTb_56XzN8", caption: "trailer" },
+      { image: "images/otmyw/otmyw_img_3.jpg" },
+      { image: "images/otmyw/otmyw_img_5.jpg" },
+      { image: "images/otmyw/otmyw_img_2.jpg" },
+      { image: "images/otmyw/otmyw_img_1.jpg" },
+      { image: "images/otmyw/otmyw_img_4.jpg" }
     ],
     text: {
       en: `On the Morning You Wake (to the End of the World) captures the voices of the people who experienced the real and imminent threat of nuclear weapons during 38 minutes on January 2018.`,
@@ -286,15 +293,15 @@ J'ai utilisé mon propre outil, [Audio Engine](#audio-engine), sur ce projet. J'
     platforms: "rift, vive",
     role: { en: "sound editing, implementation", fr: "édition son, implementation" },
     links: [
-      { label: { en: "website", fr: "site web" }, url: "http://novelab.net/en/project-s/#!/spheres" },
+      { label: { en: "website", fr: "site web" }, url: "https://citylightsvr.com/project/spheres/" },
       { label: { en: "oculus page", fr: "page oculus" }, url: "https://www.oculus.com/experiences/rift/1859625197439973" }
     ],
     download: "",
     media: [
       { youtube: "kmi59osnYb4", caption: "spheres · trailer" },
-      { youtube: "RmDzhDD8qHg", caption: "spheres · chorus of the cosmos · trailer" },
       { youtube: "npXRSC23p2A", caption: "spheres · songs of spacetime · trailer" },
       { youtube: "-8ss1J-Ys1s", caption: "spheres · pale blue dot · trailer" },
+      { youtube: "RmDzhDD8qHg", caption: "spheres · chorus of the cosmos · trailer" },
       { image: "images/spheres/spheres_img_1.jpg" },
       { image: "images/spheres/spheres_img_2.jpg" }
     ],

@@ -169,7 +169,7 @@
     } else if (m.soundcloud) {
       html = `<iframe src="https://w.soundcloud.com/player/?url=${encodeURIComponent(m.soundcloud)}&visual=true&color=%23${(S.accent || "#e8a33d").slice(1)}" allow="autoplay" title="${esc(p.title)}"></iframe>`;
     } else if (m.image) {
-      html = `<img src="${esc(m.image)}" alt="${esc(t(m.caption) || p.title)}">`;
+      html = `<img class="zoomable" src="${esc(m.image)}" alt="${esc(t(m.caption) || p.title)}">`;
     }
     if (list.length > 1) html += `<button type="button" class="icon-btn stage-nav prev" aria-label="←">←</button><button type="button" class="icon-btn stage-nav next" aria-label="→">→</button>`;
     stage.innerHTML = html;
@@ -222,6 +222,7 @@
   function closeProject(fromHash) {
     if (modal.hidden) return;
     modal.hidden = true;
+    $("#zoom").hidden = true;                 // ferme l'aperçu agrandi s'il est ouvert
     $("#mStage").innerHTML = "";              // coupe les vidéos en cours
     document.body.classList.remove("modal-open");
     document.title = homeTitle;
@@ -247,16 +248,24 @@
   }
 
   /* ---------- Événements ---------- */
+  // aperçu agrandi des images du carousel
+  const zoom = $("#zoom");
+  const setZoom = src => { zoom.hidden = !src; if (src) $("img", zoom).src = src; };
   document.addEventListener("click", e => {
+    if (!zoom.hidden) { setZoom(null); return; }                       // un clic n'importe où ferme l'aperçu
+    const zi = e.target.closest("#mStage img.zoomable");
+    if (zi) { setZoom(zi.src); return; }
     const f = e.target.closest(".filter");
     if (f) { filter = f.dataset.tag; renderFilters(); renderGrid(); return; }
     const th = e.target.closest("#mThumbs button");
     if (th) { showMedia(+th.dataset.i); return; }
     if (e.target.closest("[data-close]")) { closeProject(false); return; }
-    // clic dans le vide de la fiche projet = fermer (sauf dans la colonne de textes à droite du player)
+    // clic dans le vide de la fiche projet = fermer, sauf à côté des textes à droite du player
+    // (entre le player et les textes, jusqu'à la fin des textes ; sous les textes, ça ferme)
     if (!modal.hidden && !e.target.closest(".info") && e.target.matches(".modal-panel, .modal-content, .modal-bar, .viewer")) {
-      const info = $(".info").getBoundingClientRect();
-      const inTextColumn = e.target.matches(".modal-content, .modal-panel") && innerWidth > 900 && e.clientX >= info.left && e.clientX <= info.right;
+      const info = $(".info").getBoundingClientRect(), viewer = $(".viewer").getBoundingClientRect();
+      const inTextColumn = e.target.matches(".modal-content, .modal-panel") && innerWidth > 900 &&
+        e.clientX >= viewer.right && e.clientX <= info.right && e.clientY <= info.bottom;
       if (!inTextColumn) { closeProject(false); return; }
     }
     const a = e.target.closest('a[href^="#"]');
@@ -271,6 +280,7 @@
   $("#mNext").addEventListener("click", () => step(1));
   document.addEventListener("keydown", e => {
     if (modal.hidden) return;
+    if (!zoom.hidden) { if (e.key === "Escape") setZoom(null); return; }
     if (e.key === "Escape") closeProject(false);
     else if (e.key === "ArrowRight" && !e.target.closest("iframe")) showMedia(mediaIndex + 1);
     else if (e.key === "ArrowLeft") showMedia(mediaIndex - 1);
