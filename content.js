@@ -182,6 +182,7 @@ Ce site n'utilise ni cookies ni outil de mesure d'audience. Les messages envoyé
     role: { en: "lead audio", fr: "lead audio" },
     links: [ { label: { en: "website", fr: "site web" }, url: "https://..." } ],
     download: "",                           // lien vers le jeu (itch.io, GitHub Releases...)
+    audio: ["https://soundcloud.com/..."],  // facultatif : lecteurs SoundCloud sous le carousel (morceaux ou playlists)
     media: [                                // galerie, dans l'ordre
       { youtube: "ID_DE_LA_VIDEO", caption: "trailer" },   // ID = la fin de youtu.be/ID
       { vimeo: "123456789" },
@@ -779,6 +780,9 @@ Le projet a eu un futur puisqu'une partie de l'équipe du projet a créé ebim s
     role: { en: "sound design, music, voices, implementation", fr: "sound design, musique, voix, implementation" },
     links: [],
     download: "", // ancien fichier : wander.rar (à déposer sur itch.io ou GitHub Releases, puis coller le lien ici)
+    audio: [
+      "https://soundcloud.com/dumasflo/wander-main-theme",
+    ],
     media: [
       { youtube: "hkSnEq1vEXE", caption: "trailer", poster: "images/wander/wander_poster2.jpg" },
       { youtube: "dTwM01DttOQ", caption: "audio walkthrough", poster: "images/wander/wander_audio.jpg" },
@@ -808,6 +812,9 @@ Wander est un jeu à la première personne. C'est un jeu de plateforme et de str
     role: { en: "sound design, music, voices, implementation", fr: "sound design, musique, voix, implementation" },
     links: [],
     download: "", // ancien fichier : sbires.zip (à déposer sur itch.io ou GitHub Releases, puis coller le lien ici)
+    audio: [
+      "https://soundcloud.com/dumasflo/sets/sbires-ost",
+    ],
     media: [
       { youtube: "BUEm-ofUbk4", caption: "teaser" },
       { image: "images/sbires/sbires_screenshot_1.jpg" },
@@ -863,6 +870,10 @@ Se joue à 2, pour manette 360, le 1er joueur incarne la patineuse, le 2ème jou
     role: { en: "sound design, music", fr: "sound design, musique" },
     links: [],
     download: "", // ancien fichier : Martyr.zip (à déposer sur itch.io ou GitHub Releases, puis coller le lien ici)
+    audio: [
+      "https://soundcloud.com/dumasflo/martyr-main-menu",
+      "https://soundcloud.com/dumasflo/martyr-in-game",
+    ],
     media: [
       { image: "images/martyr/martyr_screenshot_1.jpg" },
       { image: "images/martyr/martyr_screenshot_2.jpg" }

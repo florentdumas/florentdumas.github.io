@@ -206,6 +206,12 @@
     $("#mText").innerHTML = md(t(p.text));
     const media = p.media || [];
     $("#mThumbs").innerHTML = media.length > 1 ? media.map((m, i) => `<li><button type="button" data-i="${i}" aria-label="${esc(t(m.caption) || (i + 1))}">${mediaThumb(m, p)}</button></li>`).join("") : "";
+    // lecteurs SoundCloud sous le carousel (champ "audio" : liste d'adresses de morceaux ou de playlists)
+    $("#mAudio").innerHTML = (p.audio || []).map(url => {
+      const playlist = /\/sets\//.test(url);
+      const src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}&color=%23${(S.accent || "#e8a33d").slice(1)}&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false&visual=false`;
+      return `<iframe class="${playlist ? "sc-playlist" : "sc-track"}" src="${src}" loading="lazy" allow="autoplay" title="SoundCloud"></iframe>`;
+    }).join("");
     showMedia(0);
     $(".modal-panel").scrollTop = 0;
   }
@@ -226,6 +232,7 @@
     modal.hidden = true;
     $("#zoom").hidden = true;                 // ferme l'aperçu agrandi s'il est ouvert
     $("#mStage").innerHTML = "";              // coupe les vidéos en cours
+    $("#mAudio").innerHTML = "";              // coupe la musique SoundCloud en cours
     document.body.classList.remove("modal-open");
     document.title = homeTitle;
     if (!fromHash) {
@@ -274,7 +281,7 @@
     if (a && !modal.hidden && !byId[a.getAttribute("href").slice(1)]) {
       // lien vers une section depuis la fiche : on ferme d'abord
       e.preventDefault(); const target = a.getAttribute("href");
-      modal.hidden = true; document.body.classList.remove("modal-open"); $("#mStage").innerHTML = "";
+      modal.hidden = true; document.body.classList.remove("modal-open"); $("#mStage").innerHTML = ""; $("#mAudio").innerHTML = "";
       history.replaceState(null, "", target); const el = $(target); if (el) el.scrollIntoView();
     }
   });
