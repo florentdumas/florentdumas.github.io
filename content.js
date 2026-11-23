@@ -376,9 +376,14 @@ C'est la première fois que je travaille sur un podcast aussi massif, et c'étai
     ],
     download: "",
     media: [
-      { youtube: "OF64K8dfvxQ" },
-      { image: "images/22-7c/22-7c_img_2.jpg" },
-      { image: "images/22-7c/22-7c_img_1.jpg" }
+      { youtube: "PrBkR7Uqn-A", caption: "360° film" },,
+      { image: "images/22-7c/22-7c_img_2.jpg" },,
+      { image: "images/22-7c/22-7c_img_1.jpg" },
+      { image: "images/22-7c/22-7c_sled.jpg" },
+      { image: "images/22-7c/22-7c_iceberg.jpg" },
+      { image: "images/22-7c/22-7c_ice_floe.jpg" },
+      { image: "images/22-7c/22-7c_campfire.jpg" },
+      { image: "images/22-7c/22-7c_ending.jpg" }
     ],
     text: {
       en: `-22.7°C is an immersive experience in the polar circle inspired by the adventures of the musician Molécule.
