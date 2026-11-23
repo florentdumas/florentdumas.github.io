@@ -9,7 +9,7 @@
   const UI = {
     en: {
       "nav.work": "work", "nav.about": "about", "nav.credits": "credits", "nav.contact": "contact",
-      skip: "Skip to projects", seeWork: "see the work", news: "news", resume: "download my resume",
+      skip: "Skip to projects", seeWork: "see the work", news: "news", resume: "download my resume", resumeSoon: "coming soon",
       awards: "awards", contactTitle: "contact", type: "type", tech: "tools", platforms: "platforms",
       role: "role", year: "year", download: "download the game", close: "Close", prev: "Previous project",
       next: "Next project", noContact: "Contact details coming soon.", legal: "legal notice",
@@ -22,7 +22,7 @@
     },
     fr: {
       "nav.work": "projets", "nav.about": "à propos", "nav.credits": "crédits", "nav.contact": "contact",
-      skip: "Aller aux projets", seeWork: "voir les projets", news: "actualités", resume: "télécharger mon cv",
+      skip: "Aller aux projets", seeWork: "voir les projets", news: "actualités", resume: "télécharger mon cv", resumeSoon: "bientôt disponible",
       awards: "prix et distinctions", contactTitle: "contact", type: "type", tech: "outils", platforms: "plateformes",
       role: "rôle", year: "année", download: "télécharger le jeu", close: "Fermer", prev: "Projet précédent",
       next: "Projet suivant", noContact: "Coordonnées bientôt disponibles.", legal: "mentions légales",
@@ -95,7 +95,7 @@
     $("#news").innerHTML = news.map(n => `<li>${inline(n)}</li>`).join("");
     $("#skills").innerHTML = (S.skills || []).map(g =>
       `<div><h3>${esc(t(g.title))}</h3><ul>${t(g.items).map(i => `<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
-    const r = t(S.resume); $("#resume").hidden = !r; $("#resume").href = r || "#";
+    const r = t(S.resume); $("#resume").hidden = !r; $("#resume").href = r || "#"; $("#resumeSoon").hidden = !!r;
 
     // crédits
     const link = (id, label) => id && byId[id] ? `<a href="#${id}">${esc(label)}</a>` : esc(label);

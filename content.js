@@ -30,7 +30,8 @@ window.SITE = {
     fr: "Lead Audio chez [G4F Prod](https://www.g4f-prod.com/)",
   },
   accent: "#e8a33d",                // couleur d'accent du site
-  resume: { en: "files/florent_dumas_resume.pdf", fr: "files/florent_dumas_cv.pdf" },
+  // CV : chemin du PDF (ex. "files/florent_dumas_resume.pdf") ; vide = « coming soon » affiché à la place
+  resume: { en: "", fr: "" },
 
   /* ---------- Contact ----------
      Formulaire + (facultatif) adresse e-mail et liens affichés en dessous.
@@ -198,6 +199,37 @@ Second paragraph with a [link](https://...).`,
   },
   */
   projects: [
+  {
+    id: "demeter",
+    title: "Demeter: The Asklepios Chronicles",
+    year: 2024,
+    tags: ["main", "game", "vr"],
+    cover: "images/demeter/demeter_poster.jpg",
+    type: { en: "mixed reality narrative platformer", fr: "jeu de plateforme narratif en réalité mixte" },
+    tech: "unity",
+    platforms: "quest2, quest pro, quest3",
+    role: { en: "lead audio, implementation", fr: "lead audio, intégration" },
+    links: [
+      { label: { en: "website", fr: "site web" }, url: "https://demeter-game.com/" },
+      { label: { en: "novelab page", fr: "page novelab" }, url: "https://novelab.io/project/demeter-the-asklepios-chronicles/" }
+    ],
+    download: "",
+    media: [
+      { youtube: "OrpFnNLTdJ8", caption: "launch trailer" },
+      { image: "images/demeter/demeter_still_09.jpg" },
+      { image: "images/demeter/demeter_still_07.jpg" },
+      { image: "images/demeter/demeter_still_01.jpg" },
+      { image: "images/demeter/demeter_background.jpg" }
+    ],
+    text: {
+      en: `Demeter: The Asklepios Chronicles is a mixed reality narrative platformer produced by Novelab with Meta. Atalanta, the heroine, has fallen into our world: the player's walls and furniture become the levels, with puzzles, climbing, flying vehicles and combat, and a world that is procedurally generated to fit any room.
+
+I used my own tool, [Audio Engine](#audio-engine), for this project. Through Audio Engine, I also developed an interactive music system to support the [amazing OST](https://youtu.be/0yuuiaWI9uA) of Antoine Wert.`,
+      fr: `Demeter: The Asklepios Chronicles est un jeu de plateforme narratif en réalité mixte produit par Novelab avec Meta. L'héroïne, Atalanta, est tombée dans notre monde : les murs et les meubles du joueur deviennent les niveaux, avec des énigmes, de l'escalade, des engins volants et des combats, dans un monde généré de façon procédurale pour s'adapter à toutes les pièces.
+
+J'ai utilisé mon propre outil, [Audio Engine](#audio-engine), sur ce projet. J'ai aussi développé avec Audio Engine un système de musique interactive pour porter la [superbe bande originale](https://youtu.be/0yuuiaWI9uA) d'Antoine Wert.`,
+    },
+  },
   {
     id: "4feethigh",
     title: "4 Feet High",
@@ -567,6 +599,32 @@ Le son a été fabriqué entièrement en post-production.`,
     text: {
       en: `AudioElec is a procedural audio plug-in. Its purpose is to synthesize electrical sounds in real time and to control eletrical-type samples.`,
       fr: `AudioElec est un plug-in audio procédural. Son but est de synthétiser des sons de types électriques en temps réel. Il permet aussi de contrôler des samples de types électriques.`,
+    },
+  },
+  {
+    id: "audio-engine",
+    title: "Audio Engine",
+    year: 2022,
+    tags: ["tool"],
+    cover: "images/audio-engine/audio-engine_poster.jpg",
+    type: { en: "audio engine for unity", fr: "moteur audio pour unity" },
+    tech: "unity",
+    platforms: "unity package",
+    role: { en: "programming", fr: "programmation" },
+    links: [],
+    download: "",
+    media: [
+      { image: "images/audio-engine/audio-engine_screenshot_1.jpg", caption: "source: randomization, filters, 3d positioning and rtpc" },
+      { image: "images/audio-engine/audio-engine_screenshot_2.jpg", caption: "sequence container" },
+      { image: "images/audio-engine/audio-engine_screenshot_3.jpg", caption: "event: play, stop, pause, fades" }
+    ],
+    text: {
+      en: `Audio Engine is a Unity package for designing and implementing game audio directly inside Unity.
+
+Sounds are set up as assets: sources with randomized volume, pitch and filters, 3D positioning and game parameters (RTPC) driving their settings; containers that play several sources in sequence or at random; and events that play, stop, pause or fade them from gameplay.`,
+      fr: `Audio Engine est un package Unity pour concevoir et intégrer l'audio d'un jeu directement dans Unity.
+
+Les sons se configurent sous forme d'assets : des sources avec volume, pitch et filtres aléatoires, spatialisation 3D et paramètres de jeu (RTPC) qui pilotent leurs réglages ; des containers qui jouent plusieurs sources en séquence ou au hasard ; et des events qui les lancent, les arrêtent, les mettent en pause ou les fondent depuis le gameplay.`,
     },
   },
   {
