@@ -330,7 +330,7 @@ J'ai eu la chance de travailler étroitement avec une partie de l'équipe audio 
     ],
     download: "",
     media: [
-      { youtube: "zHW1JgrKBew", caption: "trailer" },
+      { youtube: "9ViF0GBt6fQ", caption: "into darkness · vr experience teaser" },
       { image: "images/notes-on-blindness/nob_screenshot_2.jpg" },
       { image: "images/notes-on-blindness/nob_screenshot_3.jpg" },
       { image: "images/notes-on-blindness/nob_screenshot_4.jpg" },
@@ -353,10 +353,12 @@ L’expérience sonore interactive est basée sur les enregistrements audio rée
     tags: ["main", "linear"],
     cover: "images/malfosse/malfosse_poster.jpg",
     type: { en: "podcast", fr: "podcast" },
-    tech: "",
+    tech: "reaper",
     platforms: "audible app",
     role: { en: "lead sound design, project management", fr: "lead sound design, chef de projet" },
-    links: [],
+    links: [
+      { label: { en: "website", fr: "site web" }, url: "https://www.audible.fr/pd/Malfosse-Livre-Audio/B08G57PRJ4" }
+    ],
     download: "",
     media: [
       { youtube: "WDUTdPB_B-k" }
@@ -443,11 +445,11 @@ Feature intéressante à propos du sound design du jeu : le point d'écoute est 
     tags: ["main", "vr", "linear"],
     cover: "images/kinoscope/kinoscope_poster.jpg",
     type: { en: "virtual reality animated short film", fr: "court métrage en réalité virtuelle" },
-    tech: "",
+    tech: "reaper",
     platforms: "youtube, cardboard",
     role: { en: "sound design, 360 mix", fr: "sound design, mix 360" },
     links: [
-      { label: { en: "website", fr: "site web" }, url: "http://novelab.net/fr/projets/#!/la-cinematheque-francaise-kinoscope" }
+      { label: { en: "website", fr: "site web" }, url: "https://artsandculture.google.com/asset/kinoscope-a-vr-journey-into-the-world-of-cinema/mgHwbzF-ExSqCQ" }
     ],
     download: "",
     media: [
@@ -474,11 +476,16 @@ Il fut intégré au parcours de l'exposition "La Machine cinéma, de Mélies à 
     platforms: "rift",
     role: { en: "sound design, implementation", fr: "sound design, implementation" },
     links: [
-      { label: { en: "website", fr: "site web" }, url: "http://tinyplanets.io/projects/umami/" }
+      { label: { en: "website", fr: "site web" }, url: "https://en.tinyplanets.fr/umami" }
     ],
     download: "",
     media: [
-      { youtube: "MeChpF2nBj8", caption: "trailer" }
+      { youtube: "MeChpF2nBj8", caption: "trailer" },
+      { image: "images/umami/umami_img_1.jpg" },
+      { image: "images/umami/umami_img_2.jpg" },
+      { image: "images/umami/umami_img_3.jpg" },
+      { image: "images/umami/umami_img_5.jpg" },
+      { image: "images/umami/umami_img_4.jpg" }
     ],
     text: {
       en: `Umami immerses the user into the story of a man rediscovering his memories through a series of Japanese dishes, beverages and tastes, in a world blending present time, gastronomy, dreams and memories.
@@ -496,7 +503,7 @@ Anecdote amusante : Umami était en compétition à la Biennale di Venezia 2018 
     tags: ["vr", "linear"],
     cover: "images/change/change_poster.jpg",
     type: { en: "virtual reality 180 short film", fr: "court métrage en réalité virtuelle 180°" },
-    tech: "",
+    tech: "reaper",
     platforms: "youtube",
     role: { en: "sound design", fr: "sound design" },
     links: [],
@@ -549,7 +556,7 @@ Le son a été fabriqué entièrement en post-production.`,
     tags: ["vr", "linear"],
     cover: "images/elegy/elegy_poster.jpg",
     type: { en: "virtual reality short film", fr: "court métrage en réalité virtuelle" },
-    tech: "",
+    tech: "reaper",
     platforms: "gearvr, go, rift",
     role: { en: "production sound mixer, sound design", fr: "chef opérateur son, sound design" },
     links: [
@@ -575,9 +582,7 @@ Le son a été fabriqué entièrement en post-production.`,
     tech: "puredata",
     platforms: "vst,au,aax & osc",
     role: { en: "programming, soundbank maker", fr: "programmation, création de soundbank" },
-    links: [
-      { label: { en: "website", fr: "site web" }, url: "https://lesound.io/product/reshape/" }
-    ],
+    links: [],
     download: "",
     media: [
       { youtube: "qxoG4cVrnEs", caption: "trailer" },
@@ -598,9 +603,7 @@ Le son a été fabriqué entièrement en post-production.`,
     tech: "puredata",
     platforms: "vst,au,aax & osc",
     role: { en: "programming, soundbank maker", fr: "programmation, création de soundbank" },
-    links: [
-      { label: { en: "website", fr: "site web" }, url: "http://lesound.io/product/audioelec/" }
-    ],
+    links: [],
     download: "",
     media: [
       { youtube: "6nknBzTN-sI", caption: "features" },
@@ -729,13 +732,12 @@ Le projet a eu un futur puisqu'une partie de l'équipe du projet a créé ebim s
     links: [],
     download: "", // ancien fichier : wander.rar (à déposer sur itch.io ou GitHub Releases, puis coller le lien ici)
     media: [
-      { youtube: "hkSnEq1vEXE", caption: "trailer" },
-      { youtube: "dTwM01DttOQ", caption: "audio walkthrough" },
+      { youtube: "hkSnEq1vEXE", caption: "trailer", poster: "images/wander/wander_poster2.jpg" },
+      { youtube: "dTwM01DttOQ", caption: "audio walkthrough", poster: "images/wander/wander_audio.jpg" },
       { image: "images/wander/wander_screenshot_1.jpg" },
       { image: "images/wander/wander_screenshot_2.jpg" },
       { image: "images/wander/wander_screenshot_3.jpg" },
-      { image: "images/wander/wander_screenshot_4.jpg" },
-      { image: "images/wander/wander_audio.jpg" }
+      { image: "images/wander/wander_screenshot_4.jpg" }
     ],
     text: {
       en: `Wander was one of my student projects I worked on at ENJMIN.

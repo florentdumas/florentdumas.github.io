@@ -147,7 +147,7 @@
   const PLAY = '<svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0l10 6-10 6z"/></svg>';
 
   function mediaThumb(m, p) {
-    if (m.youtube) return `<img src="https://i.ytimg.com/vi/${esc(m.youtube)}/mqdefault.jpg" alt="" loading="lazy"><span class="pi">${PLAY}</span>`;
+    if (m.youtube) return `<img src="${m.poster ? esc(m.poster) : `https://i.ytimg.com/vi/${esc(m.youtube)}/mqdefault.jpg`}" alt="" loading="lazy"><span class="pi">${PLAY}</span>`;
     if (m.image) return `<img src="${esc(m.image)}" alt="" loading="lazy">`;
     if (m.vimeo) return (p.cover ? `<img src="${esc(p.cover)}" alt="" loading="lazy">` : `<span class="badge">vimeo</span>`) + `<span class="pi">${PLAY}</span>`;
     if (m.soundcloud) return `<span class="badge">audio</span>`;
@@ -162,7 +162,9 @@
     stage.classList.toggle("audio", !!m.soundcloud);
     let html = "";
     if (m.youtube) {
-      html = `<img class="poster" src="https://i.ytimg.com/vi/${esc(m.youtube)}/maxresdefault.jpg" alt="" onload="if(this.naturalWidth<200)this.src='https://i.ytimg.com/vi/${esc(m.youtube)}/hqdefault.jpg'">
+      // image d'aperçu : "poster" du média si fourni, sinon celle de YouTube
+      html = (m.poster ? `<img class="poster" src="${esc(m.poster)}" alt="">`
+        : `<img class="poster" src="https://i.ytimg.com/vi/${esc(m.youtube)}/maxresdefault.jpg" alt="" onload="if(this.naturalWidth<200)this.src='https://i.ytimg.com/vi/${esc(m.youtube)}/hqdefault.jpg'">`) + `
               <button type="button" class="play" aria-label="${ui("play")}"><span>${PLAY}</span></button>`;
     } else if (m.vimeo) {
       html = `<iframe src="https://player.vimeo.com/video/${esc(m.vimeo)}?dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="${esc(p.title)}"></iframe>`;
