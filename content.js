@@ -100,7 +100,7 @@ Ce site n'utilise ni cookies ni outil de mesure d'audience. Les messages envoyé
       },
     },
     { title: { en: "programming", fr: "programmation" }, items: { en: ["c# in unity", "blueprint in unreal engine", "pure data"], fr: ["c# dans unity", "blueprint dans unreal engine", "pure data"] } },
-    { title: { en: "engines", fr: "moteurs" }, items: { en: ["wwise", "fmod", "unity", "unreal engine"], fr: "" } },
+    { title: { en: "tools", fr: "outils" }, items: { en: ["wwise", "fmod", "unity", "unreal engine", "reaper"], fr: "" } },
   ],
 
   /* ---------- Crédits ----------
