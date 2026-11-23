@@ -85,12 +85,8 @@ Ce site n'utilise ni cookies ni outil de mesure d'audience. Les messages envoyé
   /* ---------- Actualités (la plus récente en premier) ---------- */
   news: [
     {
-      en: "[On the Morning You Wake](#otmyw) won the SXSW 2022 XR Experience award! Check it out, it's free!",
-      fr: "[On the Morning You Wake](#otmyw) a remporté le prix SXSW 2022 XR Experience ! Tentez l'expérience, c'est gratuit !",
-    },
-    {
-      en: "[Notes on Blindness](#notes-on-blindness), released in 2016, won a Peabody Award in the Interactive & Digital section!",
-      fr: "[Notes on Blindness](#notes-on-blindness), sorti en 2016, a remporté un Peabody Award dans la section Interactive & Digital !",
+      en: "[Warhammer 40,000: Mechanicus II](https://store.steampowered.com/app/2532480/) is out! I had the chance to work on the franchise with Bulwark Studios!",
+      fr: "[Warhammer 40,000: Mechanicus II](https://store.steampowered.com/app/2532480/) est sorti ! J'ai eu la chance de travailler sur la franchise avec Bulwark Studios !",
     },
   ],
 
@@ -113,6 +109,7 @@ Ce site n'utilise ni cookies ni outil de mesure d'audience. Les messages envoyé
     {
       title: { en: "interactive media", fr: "médias interactifs" },
       rows: [
+        { title: "Warhammer 40,000: Mechanicus II", project: "mechanicus-2", role: "sound mixer, implementation, sound design", where: "pc, ps5, xbox series x|s", year: 2026 },
         { title: "Demeter: The Asklepios Chronicles", project: "demeter", role: "lead audio, implementation", where: "quest 2, quest pro, quest 3", year: 2024 },
         { title: "On the Morning You Wake", project: "otmyw", role: "lead audio, implementation", where: "quest 2", year: 2022 },
         { title: "-22.7°C", project: "22-7c", role: "sound design, implementation", where: "rift, youtube", year: 2019 },
@@ -207,7 +204,7 @@ Second paragraph with a [link](https://...).`,
     tags: ["main", "game"],
     cover: "images/mechanicus-2/mechanicus-2_poster.jpg",
     type: { en: "turn-based tactics game", fr: "jeu de tactique au tour par tour" },
-    tech: "fmod",
+    tech: "fmod, reaper",
     platforms: "pc, ps5, xbox series x|s",
     role: { en: "sound mixer, implementation, sound design", fr: "mixage, intégration, sound design" },
     links: [
