@@ -13,7 +13,7 @@
       awards: "awards", contactTitle: "contact", type: "type", tech: "tools", platforms: "platforms",
       role: "role", year: "year", download: "download the game", close: "Close", prev: "Previous project",
       next: "Next project", noContact: "Contact details coming soon.", legal: "legal notice",
-      play: "Play video", lang: "FR", langLabel: "Voir le site en français",
+      play: "Play video", lang: "EN", langLabel: "Voir le site en français",
       toLight: "Switch to light mode", toDark: "Switch to dark mode", cv: "cv",
       formName: "name", formEmail: "email", formMessage: "message", formSend: "send",
       formSending: "Sending…", formSent: "Thanks! Your message has been sent.",
@@ -26,7 +26,7 @@
       awards: "prix et distinctions", contactTitle: "contact", type: "type", tech: "outils", platforms: "plateformes",
       role: "rôle", year: "année", download: "télécharger le jeu", close: "Fermer", prev: "Projet précédent",
       next: "Projet suivant", noContact: "Coordonnées bientôt disponibles.", legal: "mentions légales",
-      play: "Lire la vidéo", lang: "EN", langLabel: "View the site in English",
+      play: "Lire la vidéo", lang: "FR", langLabel: "View the site in English",
       toLight: "Passer en mode clair", toDark: "Passer en mode sombre", cv: "cv",
       formName: "nom", formEmail: "e-mail", formMessage: "message", formSend: "envoyer",
       formSending: "Envoi…", formSent: "Merci ! Votre message a bien été envoyé.",
@@ -72,7 +72,8 @@
   const projects = (S.projects || []).map((p, i) => [p, i])
     .sort((a, b) => (parseInt(b[0].year) || 0) - (parseInt(a[0].year) || 0) || a[1] - b[1]).map(x => x[0]);
   const byId = Object.fromEntries(projects.map(p => [p.id, p]));
-  let filter = (S.filters && S.filters[0] && S.filters[0].tag) || "*";
+  // filtre sélectionné à l'ouverture : le premier autre que "all"
+  let filter = ((S.filters || []).find(f => f.tag !== "*") || {}).tag || "*";
 
   function renderStatic() {
     document.documentElement.lang = lang;

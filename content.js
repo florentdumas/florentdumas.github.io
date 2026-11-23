@@ -161,13 +161,13 @@ Ce site n'utilise ni cookies ni outil de mesure d'audience. Les messages envoyé
   /* ---------- Filtres de la grille des projets ----------
      Chaque projet a des "tags" ; un filtre affiche les projets qui ont ce tag. */
   filters: [
+    { tag: "*", label: { en: "all", fr: "tout" } },
     { tag: "main", label: { en: "main projects", fr: "projets principaux" } },
     { tag: "game", label: { en: "games", fr: "jeux" } },
     { tag: "linear", label: { en: "linear", fr: "linéaire" } },
     { tag: "vr", label: { en: "vr & 360", fr: "vr & 360" } },
     { tag: "tool", label: { en: "tools", fr: "outils" } },
     { tag: "student", label: { en: "student work", fr: "projets étudiants" } },
-    { tag: "*", label: { en: "all", fr: "tout" } },
   ],
 
   /* ---------- Projets ----------
