@@ -31,7 +31,7 @@ window.SITE = {
   },
   accent: "#e8a33d",                // couleur d'accent du site
   // CV : chemin du PDF (ex. "files/florent_dumas_resume.pdf") ; vide = « coming soon » affiché à la place
-  resume: { en: "", fr: "" },
+  resume: { en: "cv.html", fr: "cv.html" },
 
   /* ---------- Contact ----------
      Formulaire + (facultatif) adresse e-mail et liens affichés en dessous.
