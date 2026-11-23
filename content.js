@@ -198,6 +198,21 @@ Second paragraph with a [link](https://...).`,
   */
   projects: [
   {
+    id: "unannounced",
+    title: "Unannounced",
+    year: 2027,
+    tags: ["main"],
+    cover: "images/unannounced/unannounced_poster.jpg",
+    type: { en: "?", fr: "?" },
+    tech: "?",
+    platforms: "?",
+    role: { en: "?", fr: "?" },
+    links: [],
+    download: "",
+    media: [],
+    text: { en: "?", fr: "?" },
+  },
+  {
     id: "mechanicus-2",
     title: "Warhammer 40,000: Mechanicus II",
     year: 2026,
