@@ -113,6 +113,7 @@ Ce site n'utilise ni cookies ni outil de mesure d'audience. Les messages envoyé
     {
       title: { en: "interactive media", fr: "médias interactifs" },
       rows: [
+        { title: "Demeter: The Asklepios Chronicles", project: "demeter", role: "lead audio, implementation", where: "quest 2, quest pro, quest 3", year: 2024 },
         { title: "On the Morning You Wake", project: "otmyw", role: "lead audio, implementation", where: "quest 2", year: 2022 },
         { title: "-22.7°C", project: "22-7c", role: "sound design, implementation", where: "rift, youtube", year: 2019 },
         { title: "Spheres", project: "spheres", role: "sound editing, implementation", where: "rift, vive", year: 2018 },
@@ -199,6 +200,41 @@ Second paragraph with a [link](https://...).`,
   },
   */
   projects: [
+  {
+    id: "mechanicus-2",
+    title: "Warhammer 40,000: Mechanicus II",
+    year: 2026,
+    tags: ["main", "game"],
+    cover: "images/mechanicus-2/mechanicus-2_poster.jpg",
+    type: { en: "turn-based tactics game", fr: "jeu de tactique au tour par tour" },
+    tech: "fmod",
+    platforms: "pc, ps5, xbox series x|s",
+    role: { en: "sound mixer, implementation, sound design", fr: "mixage, intégration, sound design" },
+    links: [
+      { label: { en: "steam page", fr: "page steam" }, url: "https://store.steampowered.com/app/2532480/" }
+    ],
+    download: "",
+    media: [
+      { youtube: "ekWDGK76-tA", caption: "launch trailer" },
+      { youtube: "XD_nKRCwz0w", caption: "gameplay overview" },
+      { image: "images/mechanicus-2/mechanicus-2_img_1.jpg" },
+      { image: "images/mechanicus-2/mechanicus-2_img_2.jpg" },
+      { image: "images/mechanicus-2/mechanicus-2_img_3.jpg" },
+      { image: "images/mechanicus-2/mechanicus-2_img_4.jpg" },
+      { image: "images/mechanicus-2/mechanicus-2_img_5.jpg" },
+      { image: "images/mechanicus-2/mechanicus-2_img_6.jpg" },
+      { image: "images/mechanicus-2/mechanicus-2_img_7.jpg" },
+      { image: "images/mechanicus-2/mechanicus-2_img_8.jpg" }
+    ],
+    text: {
+      en: `Warhammer 40,000: Mechanicus II is the sequel to the acclaimed tactics game Mechanicus, developed by Bulwark Studios and published by Kasedo Games. It blends fast-paced turn-based combat with strategic management: players lead either the deathless Necron legions or the techno-religious Adeptus Mechanicus, with the fate of a world in their hands.
+
+I worked with Guillaume David to mix the soundtrack in FMOD and helped him with several implementation tasks. I also designed some of the Lingua-technis voices under his direction.`,
+      fr: `Warhammer 40,000: Mechanicus II est la suite du jeu de tactique Mechanicus, développée par Bulwark Studios et éditée par Kasedo Games. Il mêle combats au tour par tour nerveux et gestion stratégique : le joueur dirige soit les légions immortelles des Nécrons, soit les fidèles techno-religieux de l'Adeptus Mechanicus, avec le destin d'un monde entre ses mains.
+
+J'ai travaillé avec Guillaume David au mixage de la bande-son dans FMOD et je l'ai aidé sur plusieurs tâches d'intégration. J'ai aussi conçu une partie des voix en Lingua-technis sous sa direction.`,
+    },
+  },
   {
     id: "demeter",
     title: "Demeter: The Asklepios Chronicles",
