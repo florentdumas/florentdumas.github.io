@@ -934,5 +934,35 @@ Comment créer un jeu sonore pour 2 joueurs avec une seule sortie stéréo ?`,
       fr: `24h de la vie d'une femme séductrice...`,
     },
   },
+  {
+    // projet secret : absent de la grille, visible seulement via florentdumas.github.io/#spaghetti
+    hidden: true,
+    id: "spaghetti",
+    title: "Spaghetti",
+    year: 2012,
+    tags: ["game", "student"],
+    cover: "images/spaghetti/spaghetti_title.jpg",
+    type: { en: "interactive narrative", fr: "narration interactive" },
+    tech: "game maker",
+    platforms: "pc, web browser",
+    role: { en: "", fr: "" },
+    links: [],
+    download: "",
+    media: [
+      { image: "images/spaghetti/spaghetti_title.jpg" },
+      { image: "images/spaghetti/spaghetti2.jpg" },
+      { image: "images/spaghetti/spaghetti3.jpg" },
+      { image: "images/spaghetti/spaghetti4.jpg" },
+      { image: "images/spaghetti/spaghetti5.jpg" }
+    ],
+    text: {
+      en: `Interactive narrative for one player, made as part of the ENJMIN curriculum.
+
+**Team:** Florent Dumas, Philippe Salib`,
+      fr: `Narration interactive pour un joueur, réalisée dans le cadre de l'enseignement de l'ENJMIN.
+
+**Équipe :** Florent Dumas, Philippe Salib`,
+    },
+  },
   ],
 };
