@@ -69,11 +69,9 @@
 
   /* ---------- Rendu des sections ---------- */
   // projets affichés du plus récent au plus ancien (même année : ordre de content.js)
-  const allProjects = (S.projects || []).map((p, i) => [p, i])
+  const projects = (S.projects || []).map((p, i) => [p, i])
     .sort((a, b) => (parseInt(b[0].year) || 0) - (parseInt(a[0].year) || 0) || a[1] - b[1]).map(x => x[0]);
-  // projets "hidden: true" : absents de la grille, ouverts seulement par leur lien direct (#id)
-  const projects = allProjects.filter(p => !p.hidden);
-  const byId = Object.fromEntries(allProjects.map(p => [p.id, p]));
+  const byId = Object.fromEntries(projects.map(p => [p.id, p]));
   // filtre sélectionné à l'ouverture : le premier autre que "all"
   let filter = ((S.filters || []).find(f => f.tag !== "*") || {}).tag || "*";
 
@@ -198,9 +196,7 @@
     current = p;
     const list = visibleProjects().includes(p) ? visibleProjects() : projects;
     const idx = list.indexOf(p);
-    $("#mCount").textContent = p.hidden ? "" : `${String(idx + 1).padStart(2, "0")} / ${String(list.length).padStart(2, "0")}`;
-    // projet secret : pas de projet précédent/suivant
-    ["#mPrev", "#mNext"].forEach(s => { $(s).style.visibility = p.hidden ? "hidden" : ""; });
+    $("#mCount").textContent = `${String(idx + 1).padStart(2, "0")} / ${String(list.length).padStart(2, "0")}`;
     $("#mTitle").textContent = p.title;
     const facts = [["role", t(p.role)], ["tech", p.tech], ["platforms", p.platforms], ["year", p.year]].filter(f => f[1]);
     $("#mFacts").innerHTML = facts.map(([k, v]) => `<dt>${ui(k)}</dt><dd>${esc(v)}</dd>`).join("");
@@ -247,7 +243,6 @@
     if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
   }
   function step(d) {
-    if (current && current.hidden) return;
     const list = visibleProjects().includes(current) ? visibleProjects() : projects;
     const p = list[(list.indexOf(current) + d + list.length) % list.length];
     history.replaceState(null, "", "#" + p.id);

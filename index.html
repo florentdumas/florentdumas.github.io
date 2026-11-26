@@ -58,6 +58,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
   <link rel="stylesheet" href="style.css">
+  <script>/* lien secret : florentdumas.github.io/#spaghetti ouvre directement le jeu (dossier spaghetti/) */
+    if (location.hash === "#spaghetti") location.replace("spaghetti/");
+    window.addEventListener("hashchange", function () { if (location.hash === "#spaghetti") location.replace("spaghetti/"); });</script>
   <script>/* thème clair/sombre choisi précédemment, appliqué avant l'affichage */
     try { if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
 </head>
