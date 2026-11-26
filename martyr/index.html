@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+	<meta name="robots" content="noindex, nofollow" />
+	<!-- Compatibilité navigateurs récents (export Construct 2 de 2012) :
+	     1. l'ancienne API Web Audio (noteOn, noteOff, gain sur la source) est recréée,
+	     2. les sons bloqués avant la première interaction sont relancés au premier clic ou à la première touche. -->
+	<script>
+	(function () {
+		var AC = window.AudioContext || window.webkitAudioContext, contexts = [];
+		if (AC) {
+			var Ctx = function () { var c = new AC(); contexts.push(c); return c; };
+			Ctx.prototype = AC.prototype;
+			window.AudioContext = Ctx;
+			var create = AC.prototype.createBufferSource;
+			AC.prototype.createBufferSource = function () {
+				var src = create.call(this), g = this.createGain(), connect = src.connect, disconnect = src.disconnect;
+				connect.call(src, g);
+				src.gain = g.gain;
+				src.connect = function () { return g.connect.apply(g, arguments); };
+				src.disconnect = function () { try { g.disconnect.apply(g, arguments); } catch (e) {} };
+				src.noteOn = function (when) { try { src.start(when || 0); } catch (e) {} };
+				src.noteOff = function (when) { try { src.stop(when || 0); } catch (e) {} };
+				return src;
+			};
+		}
+		var play = HTMLMediaElement.prototype.play, pause = HTMLMediaElement.prototype.pause, blocked = [];
+		HTMLMediaElement.prototype.play = function () {
+			var el = this, r = play.apply(el, arguments);
+			if (r && r.catch) r.catch(function (e) { if (e && e.name === "NotAllowedError" && blocked.indexOf(el) < 0) blocked.push(el); });
+			return r;
+		};
+		HTMLMediaElement.prototype.pause = function () {
+			var i = blocked.indexOf(this); if (i >= 0) blocked.splice(i, 1);
+			return pause.apply(this, arguments);
+		};
+		function unlock() {
+			blocked.splice(0).forEach(function (el) { play.call(el).catch(function () {}); });
+			contexts.forEach(function (c) { if (c.state === "suspended") c.resume(); });
+		}
+		["pointerdown", "keydown", "touchend"].forEach(function (t) { window.addEventListener(t, unlock, true); });
+	})();
+	</script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Martyr</title>
+	
+	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="HandheldFriendly" content="true" />
+
+    <!-- All margins and padding must be zero for the canvas to fill the screen. -->
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		body {
+			background: #000;
+			color: #fff;
+			overflow: hidden;
+			-ms-touch-action: none;
+		}
+		canvas {
+			-ms-touch-action: none;
+		}
+    </style>
+</head> 
+ 
+<body> 
+	<div id="fb-root"></div>
+	
+	<!-- The canvas must be inside a div called c2canvasdiv -->
+	<div id="c2canvasdiv">
+	
+		<!-- The canvas the project will render to.  If you change its ID, don't forget to change the
+		ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
+		<canvas id="c2canvas" width="640" height="480">
+			<!-- This text is displayed if the visitor's browser does not support HTML5.
+			You can change it, but it is a good idea to link to a description of a browser
+			and provide some links to download some popular HTML5-compatible browsers. -->
+			<h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
+			<br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
+			<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
+			<a href="http://www.google.com/chrome/">Google Chrome</a><br/>
+			<a href="http://www.apple.com/safari/download/">Apple Safari</a><br/>
+			<a href="http://www.google.com/chromeframe">Google Chrome Frame for Internet Explorer</a><br/></h1>
+		</canvas>
+		
+	</div>
+	
+	<!-- Pages load faster with scripts at the bottom -->
+	
+	<!-- Construct 2 exported games require jQuery.  To save bandwidth, by default
+	this is set to grab it off the Google content delivery network (CDN). Fall back to local if not available. -->
+	<script src="jquery-1.7.1.min.js"></script>
+
+
+	
+    <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
+    This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
+	<script src="c2runtime.js"></script>
+
+    <script>
+		// Size the canvas to fill the browser viewport.
+		jQuery(window).resize(function() {
+			cr_sizeCanvas(jQuery(window).width(), jQuery(window).height());
+		});
+		
+		// Start the Construct 2 project running on window load.
+		jQuery(document).ready(function ()
+		{			
+			// Create new runtime using the c2canvas
+			cr_createRuntime("c2canvas");
+			
+			cr_sizeCanvas(jQuery(window).width(), jQuery(window).height());
+		});
+		
+		// Pause and resume on page becoming visible/invisible
+		function onVisibilityChanged() {
+			if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
+				cr_setSuspended(true);
+			else
+				cr_setSuspended(false);
+		};
+		
+		document.addEventListener("visibilitychange", onVisibilityChanged, false);
+		document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
+		document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
+		document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
+		
+    </script>
+</body> 
+</html> 
