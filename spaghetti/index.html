@@ -77,6 +77,27 @@
             </canvas>
         </div>
 
+        <!-- Navigateurs récents : un son ne peut pas démarrer avant un clic ou une touche.
+             Les sons bloqués au chargement (musique du menu) sont relancés à la première interaction. -->
+        <script>
+        (function () {
+            var play = HTMLMediaElement.prototype.play, pause = HTMLMediaElement.prototype.pause, blocked = [];            HTMLMediaElement.prototype.play = function () {
+                var el = this, r = play.apply(el, arguments);                if (r && r.catch) r.catch(function (e) { if (e && e.name === "NotAllowedError" && blocked.indexOf(el) < 0) blocked.push(el); });
+                return r;
+            };
+            HTMLMediaElement.prototype.pause = function () {
+                var i = blocked.indexOf(this); if (i >= 0) blocked.splice(i, 1);
+                return pause.apply(this, arguments);
+            };
+            function unlock() {
+                var list = blocked.splice(0);
+                list.forEach(function (el) { play.call(el).catch(function () {}); });
+                if (window.g_WebAudioContext && g_WebAudioContext.resume) g_WebAudioContext.resume();
+            }
+            ["pointerdown", "keydown", "touchend"].forEach(function (t) { window.addEventListener(t, unlock, true); });
+        })();
+        </script>
+
         <!-- Run the game code -->
         <script type="text/javascript" src="html5game/index.js?JBRAC=1632879121"></script>
     </body>
